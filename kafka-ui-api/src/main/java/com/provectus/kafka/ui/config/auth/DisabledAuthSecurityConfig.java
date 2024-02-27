@@ -27,6 +27,7 @@ public class DisabledAuthSecurityConfig extends AbstractAuthSecurityConfig {
       System.exit(1);
     }
     log.warn("Authentication is disabled. Access will be unrestricted.");
+    System.out.println("Authentication is disabled. Access will be unrestricted.");
 
     return http.authorizeExchange(spec -> spec
             .anyExchange()
