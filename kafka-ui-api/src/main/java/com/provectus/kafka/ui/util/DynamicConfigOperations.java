@@ -91,7 +91,7 @@ public class DynamicConfigOperations {
 
   public PropertiesStructure getCurrentProperties() {
     checkIfDynamicConfigEnabled();
-    System.out.println("The auth type is " + ctx.getEnvironment().getProperty("auth.type") );
+    System.out.println("The auth type is " + ctx.getEnvironment().getProperty("auth.type"));
     return PropertiesStructure.builder()
         .kafka(getNullableBean(ClustersProperties.class))
         .rbac(getNullableBean(RoleBasedAccessControlProperties.class))
