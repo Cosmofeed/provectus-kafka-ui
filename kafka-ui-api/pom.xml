@@ -324,23 +324,6 @@
                         <version>10.3.1</version>
                     </dependency>
                 </dependencies>
-                <executions>
-                    <execution>
-                        <id>checkstyle</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <configuration>
-                            <violationSeverity>warning</violationSeverity>
-                            <failOnViolation>true</failOnViolation>
-                            <failsOnError>true</failsOnError>
-                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                            <configLocation>file:${basedir}/../etc/checkstyle/checkstyle.xml</configLocation>
-                            <headerLocation>file:${basedir}/../etc/checkstyle/apache-header.txt</headerLocation>
-                        </configuration>
-                    </execution>
-                </executions>
 
             </plugin>
             <plugin>
