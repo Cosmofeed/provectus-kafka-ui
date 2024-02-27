@@ -26,6 +26,7 @@ public class BasicAuthSecurityConfig extends AbstractAuthSecurityConfig {
   @Bean
   public SecurityWebFilterChain configure(ServerHttpSecurity http) {
     log.info("Configuring LOGIN_FORM authentication.");
+    System.out.println("Configuring LOGIN_FORM authentication.");
 
     final var authHandler = new RedirectServerAuthenticationSuccessHandler();
     authHandler.setRedirectStrategy(new EmptyRedirectStrategy());

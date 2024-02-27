@@ -15,6 +15,7 @@ public class KafkaUiApplication {
 
   public static void main(String[] args) {
     startApplication(args);
+    System.out.println("Hello world!");
   }
 
   public static ConfigurableApplicationContext startApplication(String[] args) {
