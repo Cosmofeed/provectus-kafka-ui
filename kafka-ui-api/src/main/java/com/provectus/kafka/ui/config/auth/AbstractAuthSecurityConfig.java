@@ -15,7 +15,7 @@ abstract class AbstractAuthSecurityConfig {
       "/actuator/info",
       "/actuator/prometheus",
       "/auth",
-      "api/clusters/local/topics",
+      "/api/clusters/local/topics",
       "/login",
       "/logout",
       "/oauth2/**",
