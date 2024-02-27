@@ -73,6 +73,7 @@ public class DynamicConfigOperations {
 
   @SneakyThrows
   public Optional<PropertySource<?>> loadDynamicPropertySource() {
+    System.out.println("Loading Dynamic Config");
     if (dynamicConfigEnabled()) {
       Path configPath = dynamicConfigFilePath();
       if (!Files.exists(configPath) || !Files.isReadable(configPath)) {

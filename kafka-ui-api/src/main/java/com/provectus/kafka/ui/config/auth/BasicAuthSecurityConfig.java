@@ -34,26 +34,24 @@ public class BasicAuthSecurityConfig extends AbstractAuthSecurityConfig {
     final var logoutSuccessHandler = new RedirectServerLogoutSuccessHandler();
     logoutSuccessHandler.setLogoutSuccessUrl(URI.create(LOGOUT_URL));
 
-    return http.authorizeExchange(spec -> spec
-        .anyExchange()
-        .permitAll())
-        .csrf(ServerHttpSecurity.CsrfSpec::disable)
-        .build();
-
     // return http.authorizeExchange(spec -> spec
-    // .pathMatchers(AUTH_WHITELIST)
-    // .permitAll()
     // .anyExchange()
-    // .authenticated()
-    // )
-    // .formLogin(spec ->
-    // spec.loginPage(LOGIN_URL).authenticationSuccessHandler(authHandler))
-    // .logout(spec -> spec
-    // .logoutSuccessHandler(logoutSuccessHandler)
-    // .requiresLogout(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET,
-    // "/logout")))
+    // .permitAll())
     // .csrf(ServerHttpSecurity.CsrfSpec::disable)
     // .build();
+
+    return http.authorizeExchange(spec -> spec
+        .pathMatchers(AUTH_WHITELIST)
+        .permitAll()
+        .anyExchange()
+        .authenticated())
+        .formLogin(spec -> spec.loginPage(LOGIN_URL).authenticationSuccessHandler(authHandler))
+        .logout(spec -> spec
+            .logoutSuccessHandler(logoutSuccessHandler)
+            .requiresLogout(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET,
+                "/logout")))
+        .csrf(ServerHttpSecurity.CsrfSpec::disable)
+        .build();
   }
 
 }
